@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 85 67% 44%; /* #73b729 (green) */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 222 20% 22%; /* #2c3242 (dark blue) */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 85 67% 44%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 20% 22%;
+    --foreground: 0 0% 98%;
+    --card: 222 22% 20%;
+    --card-foreground: 0 0% 98%;
+    --popover: 222 22% 20%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 85 67% 44%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 85 67% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom fonts */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/poppins/Poppins-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/poppins/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+}
+
+/* Custom styles */
+.font-heading {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#73b729] to-[#2c3242];
+}
+
+/* Button with gradient */
+.btn-gradient {
+  @apply bg-gradient-to-r from-[#73b729] to-[#2c3242] text-white hover:opacity-90 transition-opacity;
+}

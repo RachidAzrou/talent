@@ -1,0 +1,443 @@
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { useAuth } from "@/lib/hooks/use-auth";
+import { Logo } from "@/components/Logo";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { 
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger 
+} from "@/components/ui/dialog";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
+} from "@/components/ui/tabs";
+import { 
+  Popover,
+  PopoverContent,
+  PopoverTrigger 
+} from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { 
+  LayoutDashboard, 
+  FileSpreadsheet, 
+  Users, 
+  Building2, 
+  FileText, 
+  Bell,
+  Search,
+  Menu,
+  LogOut,
+  User,
+  Settings,
+  ChevronLeft,
+  ChevronRight,
+  UserPlus,
+  CheckCircle,
+  Calendar,
+  Key,
+  Pencil,
+} from "lucide-react";
+
+type MenuItem = {
+  name: string;
+  path: string;
+  icon: React.ReactNode;
+};
+
+const menuItems: MenuItem[] = [
+  { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard size={20} /> },
+  { name: "Admissions", path: "/admissions", icon: <FileSpreadsheet size={20} /> },
+  { name: "Candidates", path: "/candidates", icon: <Users size={20} /> },
+  { name: "Clients", path: "/clients", icon: <Building2 size={20} /> },
+  { name: "Public Form", path: "/apply", icon: <FileText size={20} /> },
+];
+
+interface MainLayoutProps {
+  children: React.ReactNode;
+}
+
+export function MainLayout({ children }: MainLayoutProps) {
+  const { user, logout } = useAuth();
+  const [location] = useLocation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Get current page title
+  const getCurrentPageTitle = () => {
+    const currentMenuItem = menuItems.find(item => item.path === location);
+    return currentMenuItem?.name || "Dashboard";
+  };
+
+  // Handle responsive design
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth < 768) {
+        setIsSidebarOpen(false);
+      } else {
+        setIsSidebarOpen(true);
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initial check
+    
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Toggle sidebar
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const userInitials = user 
+    ? (user.firstName && user.lastName 
+      ? `${user.firstName.charAt(0)}${user.lastName.charAt(0)}`
+      : user.email ? user.email.charAt(0).toUpperCase() : "U")
+    : "U";
+
+  return (
+    <div className="min-h-screen flex flex-col md:flex-row">
+      {/* Sidebar navigation for desktop */}
+      <aside
+        className={`bg-[#2c3242] text-white fixed md:sticky top-0 z-30 h-screen transition-all duration-300 ease-in-out transform ${
+          isSidebarOpen 
+            ? "translate-x-0 w-72 md:w-64" 
+            : "-translate-x-full md:translate-x-0 md:w-20"
+        }`}
+        style={{ height: "100vh", overflowY: "auto" }}
+      >
+        {/* Sidebar header */}
+        <div className="flex items-center justify-between px-4 py-5 border-b border-gray-800">
+          <div className="flex items-center">
+            {isSidebarOpen ? (
+              <Logo className="text-white" useFullLogo={true} />
+            ) : (
+              <div className="hidden md:flex justify-center items-center h-10 w-10">
+                <img 
+                  src="/assets/logo.png" 
+                  alt="Tecnarit Logo" 
+                  style={{ 
+                    height: "40px", 
+                    width: "40px", 
+                    borderRadius: "4px"
+                  }} 
+                />
+              </div>
+            )}
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleSidebar}
+            className="text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none hidden md:flex"
+          >
+            {isSidebarOpen ? <ChevronLeft /> : <ChevronRight />}
+          </Button>
+        </div>
+
+        {/* Navigation links */}
+        <nav className="py-4">
+          <div className="px-3 space-y-1">
+            {menuItems.map(item => (
+              <Link key={item.path} href={item.path}>
+                <a 
+                  className={`flex items-center w-full px-3 py-2 rounded-md transition duration-150 ease-in-out ${
+                    location === item.path 
+                      ? "bg-[#73b729] text-white" 
+                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                  }`}
+                >
+                  <span className="text-xl mr-3">{item.icon}</span>
+                  <span className={!isSidebarOpen ? "md:hidden" : ""}>{item.name}</span>
+                </a>
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        {/* Sidebar footer */}
+        <div className="mt-auto border-t border-gray-800 px-4 py-4">
+          <button 
+            onClick={logout} 
+            className="flex items-center w-full text-gray-300 hover:text-white"
+          >
+            <LogOut className="text-xl mr-3" />
+            <span className={!isSidebarOpen ? "md:hidden" : ""}>Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 min-h-screen">
+        {/* Top navigation */}
+        <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
+          <div className="px-4 sm:px-6 py-4 flex justify-between items-center">
+            {/* Mobile menu toggle */}
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="md:hidden text-gray-600 hover:text-gray-900"
+                >
+                  <Menu />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[300px] bg-[#2c3242] text-white p-0">
+                <div className="px-4 py-5 border-b border-gray-800">
+                  <Logo className="text-white" />
+                </div>
+                <nav className="py-4">
+                  <div className="px-3 space-y-1">
+                    {menuItems.map(item => (
+                      <Link key={item.path} href={item.path}>
+                        <a 
+                          className={`flex items-center w-full px-3 py-2 rounded-md transition duration-150 ease-in-out ${
+                            location === item.path 
+                              ? "bg-[#73b729] text-white" 
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                          }`}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          <span className="text-xl mr-3">{item.icon}</span>
+                          <span>{item.name}</span>
+                        </a>
+                      </Link>
+                    ))}
+                  </div>
+                </nav>
+                <div className="mt-auto border-t border-gray-800 px-4 py-4">
+                  <button 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      logout();
+                    }}
+                    className="flex items-center w-full text-gray-300 hover:text-white"
+                  >
+                    <LogOut className="text-xl mr-3" />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </SheetContent>
+            </Sheet>
+            
+            {/* Page Title */}
+            <h1 className="text-xl font-heading font-semibold text-gray-800 hidden md:block">
+              {getCurrentPageTitle()}
+            </h1>
+            
+            {/* Space between title and profile section */}
+            <div className="hidden md:block ml-6 lg:ml-auto lg:mr-auto w-full max-w-md"></div>
+            
+            {/* User Profile & Settings */}
+            <div className="flex items-center space-x-4">
+              {/* Notifications */}
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-gray-600 hover:text-gray-900 relative">
+                    <Bell className="h-5 w-5" />
+                    <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span>
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-80 p-0">
+                  <div className="border-b border-gray-200 px-4 py-3">
+                    <h3 className="font-medium text-sm">Notifications</h3>
+                  </div>
+                  <ScrollArea className="h-80">
+                    <div className="py-2">
+                      <div className="px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <div className="rounded-full bg-blue-100 p-2">
+                            <UserPlus className="h-4 w-4 text-blue-600" />
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-sm font-medium">New candidate application</p>
+                            <p className="text-xs text-gray-500">John Doe has applied for Developer position</p>
+                            <p className="text-xs text-gray-400">Just now</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <div className="rounded-full bg-green-100 p-2">
+                            <CheckCircle className="h-4 w-4 text-green-600" />
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-sm font-medium">Client status updated</p>
+                            <p className="text-xs text-gray-500">Acme Inc. is now marked as Active</p>
+                            <p className="text-xs text-gray-400">2 hours ago</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="px-4 py-3 hover:bg-gray-50 transition-colors cursor-pointer">
+                        <div className="flex items-center gap-3">
+                          <div className="rounded-full bg-amber-100 p-2">
+                            <Calendar className="h-4 w-4 text-amber-600" />
+                          </div>
+                          <div className="space-y-1">
+                            <p className="text-sm font-medium">Interview scheduled</p>
+                            <p className="text-xs text-gray-500">Interview with Jane Smith at 2:00 PM tomorrow</p>
+                            <p className="text-xs text-gray-400">Yesterday</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ScrollArea>
+                  <div className="border-t border-gray-200 px-4 py-2">
+                    <Button variant="ghost" className="w-full justify-center text-sm text-blue-600">
+                      View all notifications
+                    </Button>
+                  </div>
+                </PopoverContent>
+              </Popover>
+              
+              {/* User Profile Dialog with Tabs */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="ghost" className="flex items-center focus:outline-none">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage alt="Profile" />
+                      <AvatarFallback>{userInitials}</AvatarFallback>
+                    </Avatar>
+                    <span className="hidden md:inline-block ml-2 text-sm font-medium text-gray-800">
+                      {user?.firstName} {user?.lastName}
+                    </span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <div className="flex items-center gap-2">
+                      <User className="h-5 w-5 text-primary" />
+                      <DialogTitle>User Profile</DialogTitle>
+                    </div>
+                    <DialogDescription>
+                      Manage your account information and settings
+                    </DialogDescription>
+                  </DialogHeader>
+                  
+                  <Tabs defaultValue="profile" className="w-full">
+                    <TabsList className="grid grid-cols-3 mb-4">
+                      <TabsTrigger value="profile">Profile</TabsTrigger>
+                      <TabsTrigger value="security">Security</TabsTrigger>
+                      <TabsTrigger value="settings">Settings</TabsTrigger>
+                    </TabsList>
+                    
+                    <TabsContent value="profile" className="space-y-4">
+                      <div className="flex justify-center mb-4">
+                        <Avatar className="h-24 w-24 border-2 border-primary-100">
+                          <AvatarFallback className="text-xl bg-primary/10 text-primary">{userInitials}</AvatarFallback>
+                        </Avatar>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4 py-2">
+                        <div>
+                          <p className="text-sm font-medium text-gray-500">First Name</p>
+                          <p className="text-base font-medium">{user?.firstName || 'N/A'}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-500">Last Name</p>
+                          <p className="text-base font-medium">{user?.lastName || 'N/A'}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-500">Email</p>
+                          <p className="text-base font-medium">{user?.email || 'N/A'}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-gray-500">Function</p>
+                          <p className="text-base font-medium">HR Manager</p>
+                        </div>
+                        
+                        <div className="col-span-2 mt-2">
+                          <Button className="w-full" variant="outline" size="sm">
+                            <Pencil className="h-4 w-4 mr-2" />
+                            Edit Profile
+                          </Button>
+                        </div>
+                      </div>
+                    </TabsContent>
+                    
+                    <TabsContent value="security" className="space-y-4">
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 p-4 rounded-md border">
+                          <h3 className="text-sm font-medium mb-2">Password Management</h3>
+                          <p className="text-sm text-gray-500 mb-4">
+                            Keep your account secure with a strong password
+                          </p>
+                          <Button className="w-full" variant="outline" size="sm">
+                            <Key className="h-4 w-4 mr-2" />
+                            Change Password
+                          </Button>
+                        </div>
+                        
+                        <div className="bg-gray-50 p-4 rounded-md border">
+                          <h3 className="text-sm font-medium mb-2">Two-Factor Authentication</h3>
+                          <p className="text-sm text-gray-500 mb-4">
+                            Add an extra layer of security to your account
+                          </p>
+                          <Button className="w-full" variant="outline" size="sm">
+                            <Settings className="h-4 w-4 mr-2" />
+                            Configure 2FA
+                          </Button>
+                        </div>
+                      </div>
+                    </TabsContent>
+                    
+                    <TabsContent value="settings" className="space-y-4">
+                      <div className="space-y-4">
+                        <div className="bg-gray-50 p-4 rounded-md border">
+                          <h3 className="text-sm font-medium mb-2">Interface Settings</h3>
+                          <div className="flex items-center justify-between mt-2">
+                            <span className="text-sm">Dark Mode</span>
+                            <Switch id="dark-mode" />
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gray-50 p-4 rounded-md border">
+                          <h3 className="text-sm font-medium mb-2">Notification Preferences</h3>
+                          <div className="flex items-center justify-between mt-2">
+                            <span className="text-sm">Email Notifications</span>
+                            <Switch id="email-notifications" defaultChecked />
+                          </div>
+                        </div>
+                      </div>
+                    </TabsContent>
+                  </Tabs>
+                  
+                  <DialogFooter className="mt-4 gap-2">
+                    <Button variant="outline" className="w-full" onClick={logout}>
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </div>
+        </header>
+        
+        {/* Main content area */}
+        <div className="p-4 sm:p-6 lg:p-8">
+          {children}
+        </div>
+      </main>
+    </div>
+  );
+}

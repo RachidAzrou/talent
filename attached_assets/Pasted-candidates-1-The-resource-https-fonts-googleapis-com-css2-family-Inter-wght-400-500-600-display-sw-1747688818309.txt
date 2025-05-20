@@ -1,0 +1,31 @@
+candidates:1 The resource https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.Understand this warningAI
+candidates.tsx:364 Error adding candidate: TypeError: Failed to execute 'fetch' on 'Window': '/api/candidates' is not a valid HTTP method.
+    at apiRequest (queryClient.ts:26:21)
+    at Object.mutationFn (candidates.tsx:351:20)
+    at Object.fn (@tanstack_react-query.js?v=d727fdac:1189:29)
+    at run (@tanstack_react-query.js?v=d727fdac:494:49)
+    at Object.start (@tanstack_react-query.js?v=d727fdac:536:9)
+    at _a6.execute (@tanstack_react-query.js?v=d727fdac:1225:56)
+onError @ candidates.tsx:364
+execute @ @tanstack_react-query.js?v=d727fdac:1254
+await in execute
+mutate @ @tanstack_react-query.js?v=d727fdac:2630
+(anonymous) @ @tanstack_react-query.js?v=d727fdac:3295
+onSubmit @ candidates.tsx:375
+(anonymous) @ chunk-AO6B2ZZ6.js?v=d727fdac:1465
+await in (anonymous)
+callCallback2 @ chunk-XQLYTHWV.js?v=d727fdac:3674
+invokeGuardedCallbackDev @ chunk-XQLYTHWV.js?v=d727fdac:3699
+invokeGuardedCallback @ chunk-XQLYTHWV.js?v=d727fdac:3733
+invokeGuardedCallbackAndCatchFirstError @ chunk-XQLYTHWV.js?v=d727fdac:3736
+executeDispatch @ chunk-XQLYTHWV.js?v=d727fdac:7014
+processDispatchQueueItemsInOrder @ chunk-XQLYTHWV.js?v=d727fdac:7034
+processDispatchQueue @ chunk-XQLYTHWV.js?v=d727fdac:7043
+dispatchEventsForPlugins @ chunk-XQLYTHWV.js?v=d727fdac:7051
+(anonymous) @ chunk-XQLYTHWV.js?v=d727fdac:7174
+batchedUpdates$1 @ chunk-XQLYTHWV.js?v=d727fdac:18913
+batchedUpdates @ chunk-XQLYTHWV.js?v=d727fdac:3579
+dispatchEventForPluginEventSystem @ chunk-XQLYTHWV.js?v=d727fdac:7173
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-XQLYTHWV.js?v=d727fdac:5478
+dispatchEvent @ chunk-XQLYTHWV.js?v=d727fdac:5472
+dispatchDiscreteEvent @ chunk-XQLYTHWV.js?v=d727fdac:5449Understand this errorAI

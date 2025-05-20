@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#73b729"/>
+      <stop offset="1" stop-color="#2c3242"/>
+    </linearGradient>
+  </defs>
+  <!-- Green Square with Cactus Logo -->
+  <rect width="120" height="120" rx="18" fill="url(#paint0_linear_1_2)"/>
+  <path d="m73.9 35.7c0-4.62-3.72-8.34-8.34-8.34h-5.58c-4.62 0-8.34 3.72-8.34 8.34v22.26c0 4.62-3.72 8.34-8.34 8.34-4.62 0-8.34-3.72-8.34-8.34v-11.16c0-4.62-3.72-8.34-8.34-8.34s-8.34 3.72-8.34 8.34v27.9c0 4.62 3.72 8.34 8.34 8.34s8.34-3.72 8.34-8.34v-11.16c0-4.62 3.72-8.34 8.34-8.34 4.62 0 8.34 3.72 8.34 8.34v22.26c0 4.62 3.72 8.34 8.34 8.34h5.58c4.62 0 8.34-3.72 8.34-8.34v-39z" fill="#ffffff"/>
+  <path d="m91.5 35.7c0-4.62-3.72-8.34-8.34-8.34s-8.34 3.72-8.34 8.34v60.6c0 4.62 3.72 8.34 8.34 8.34s8.34-3.72 8.34-8.34z" fill="#ffffff"/>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "name": "TECNARIT - HR",
+  "short_name": "TECNARIT HR",
+  "description": "Tecnarit HR management application for recruitment and candidate selection",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#002147",
+  "theme_color": "#73b729",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

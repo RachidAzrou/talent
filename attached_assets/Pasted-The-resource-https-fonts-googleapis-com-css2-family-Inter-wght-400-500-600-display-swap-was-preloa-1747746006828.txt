@@ -1,0 +1,113 @@
+The resource https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.Understand this warningAI
+public-lead-form.tsx:166 Lead data being submitted: {name: 'TECNARIT_HR', contactPerson: 'Rachid Azrou', contactFunction: 'Rachid Azrou', email: 'razrou@outlook.be', phone: '+32488964127', …}
+public-lead-form.tsx:177 Debug endpoint response status: 201
+public-lead-form.tsx:210 Uncaught ReferenceError: Logo is not defined
+    at PublicLeadForm (public-lead-form.tsx:210:10)
+    at renderWithHooks (chunk-XQLYTHWV.js?v=c96c1231:11548:26)
+    at updateFunctionComponent (chunk-XQLYTHWV.js?v=c96c1231:14582:28)
+    at beginWork (chunk-XQLYTHWV.js?v=c96c1231:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-XQLYTHWV.js?v=c96c1231:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-XQLYTHWV.js?v=c96c1231:3699:24)
+    at invokeGuardedCallback (chunk-XQLYTHWV.js?v=c96c1231:3733:39)
+    at beginWork$1 (chunk-XQLYTHWV.js?v=c96c1231:19765:15)
+    at performUnitOfWork (chunk-XQLYTHWV.js?v=c96c1231:19198:20)
+    at workLoopSync (chunk-XQLYTHWV.js?v=c96c1231:19137:13)
+PublicLeadForm @ public-lead-form.tsx:210
+renderWithHooks @ chunk-XQLYTHWV.js?v=c96c1231:11548
+updateFunctionComponent @ chunk-XQLYTHWV.js?v=c96c1231:14582
+beginWork @ chunk-XQLYTHWV.js?v=c96c1231:15924
+callCallback2 @ chunk-XQLYTHWV.js?v=c96c1231:3674
+invokeGuardedCallbackDev @ chunk-XQLYTHWV.js?v=c96c1231:3699
+invokeGuardedCallback @ chunk-XQLYTHWV.js?v=c96c1231:3733
+beginWork$1 @ chunk-XQLYTHWV.js?v=c96c1231:19765
+performUnitOfWork @ chunk-XQLYTHWV.js?v=c96c1231:19198
+workLoopSync @ chunk-XQLYTHWV.js?v=c96c1231:19137
+renderRootSync @ chunk-XQLYTHWV.js?v=c96c1231:19116
+performConcurrentWorkOnRoot @ chunk-XQLYTHWV.js?v=c96c1231:18678
+workLoop @ chunk-XQLYTHWV.js?v=c96c1231:197
+flushWork @ chunk-XQLYTHWV.js?v=c96c1231:176
+performWorkUntilDeadline @ chunk-XQLYTHWV.js?v=c96c1231:384Understand this errorAI
+public-lead-form.tsx:210 Uncaught ReferenceError: Logo is not defined
+    at PublicLeadForm (public-lead-form.tsx:210:10)
+    at renderWithHooks (chunk-XQLYTHWV.js?v=c96c1231:11548:26)
+    at updateFunctionComponent (chunk-XQLYTHWV.js?v=c96c1231:14582:28)
+    at beginWork (chunk-XQLYTHWV.js?v=c96c1231:15924:22)
+    at HTMLUnknownElement.callCallback2 (chunk-XQLYTHWV.js?v=c96c1231:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-XQLYTHWV.js?v=c96c1231:3699:24)
+    at invokeGuardedCallback (chunk-XQLYTHWV.js?v=c96c1231:3733:39)
+    at beginWork$1 (chunk-XQLYTHWV.js?v=c96c1231:19765:15)
+    at performUnitOfWork (chunk-XQLYTHWV.js?v=c96c1231:19198:20)
+    at workLoopSync (chunk-XQLYTHWV.js?v=c96c1231:19137:13)
+PublicLeadForm @ public-lead-form.tsx:210
+renderWithHooks @ chunk-XQLYTHWV.js?v=c96c1231:11548
+updateFunctionComponent @ chunk-XQLYTHWV.js?v=c96c1231:14582
+beginWork @ chunk-XQLYTHWV.js?v=c96c1231:15924
+callCallback2 @ chunk-XQLYTHWV.js?v=c96c1231:3674
+invokeGuardedCallbackDev @ chunk-XQLYTHWV.js?v=c96c1231:3699
+invokeGuardedCallback @ chunk-XQLYTHWV.js?v=c96c1231:3733
+beginWork$1 @ chunk-XQLYTHWV.js?v=c96c1231:19765
+performUnitOfWork @ chunk-XQLYTHWV.js?v=c96c1231:19198
+workLoopSync @ chunk-XQLYTHWV.js?v=c96c1231:19137
+renderRootSync @ chunk-XQLYTHWV.js?v=c96c1231:19116
+recoverFromConcurrentError @ chunk-XQLYTHWV.js?v=c96c1231:18736
+performConcurrentWorkOnRoot @ chunk-XQLYTHWV.js?v=c96c1231:18684
+workLoop @ chunk-XQLYTHWV.js?v=c96c1231:197
+flushWork @ chunk-XQLYTHWV.js?v=c96c1231:176
+performWorkUntilDeadline @ chunk-XQLYTHWV.js?v=c96c1231:384Understand this errorAI
+chunk-XQLYTHWV.js?v=c96c1231:14032 The above error occurred in the <PublicLeadForm> component:
+
+    at PublicLeadForm (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/src/pages/public-lead-form.tsx?t=1747745970847:86:21)
+    at main
+    at div
+    at PublicLayout (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/src/components/PublicLayout.tsx:20:32)
+    at Route (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c96c1231:323:16)
+    at Switch (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=c96c1231:379:17)
+    at Router
+    at Provider (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-QBKL35SI.js?v=c96c1231:38:15)
+    at TooltipProvider (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=c96c1231:63:5)
+    at AuthProvider (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/src/components/AuthProvider.tsx:30:32)
+    at App (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/src/App.tsx?t=1747745917751&v=Id2LlqUGFwVIOEY3_0L6a:312:3)
+    at QueryClientProvider (https://0ab4b5f6-b053-4926-a47e-1c8679db736e-00-29yesrso8y4qf.kirk.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=c96c1231:2805:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+logCapturedError @ chunk-XQLYTHWV.js?v=c96c1231:14032
+update.callback @ chunk-XQLYTHWV.js?v=c96c1231:14052
+callCallback @ chunk-XQLYTHWV.js?v=c96c1231:11248
+commitUpdateQueue @ chunk-XQLYTHWV.js?v=c96c1231:11265
+commitLayoutEffectOnFiber @ chunk-XQLYTHWV.js?v=c96c1231:17093
+commitLayoutMountEffects_complete @ chunk-XQLYTHWV.js?v=c96c1231:17980
+commitLayoutEffects_begin @ chunk-XQLYTHWV.js?v=c96c1231:17969
+commitLayoutEffects @ chunk-XQLYTHWV.js?v=c96c1231:17920
+commitRootImpl @ chunk-XQLYTHWV.js?v=c96c1231:19353
+commitRoot @ chunk-XQLYTHWV.js?v=c96c1231:19277
+finishConcurrentRender @ chunk-XQLYTHWV.js?v=c96c1231:18760
+performConcurrentWorkOnRoot @ chunk-XQLYTHWV.js?v=c96c1231:18718
+workLoop @ chunk-XQLYTHWV.js?v=c96c1231:197
+flushWork @ chunk-XQLYTHWV.js?v=c96c1231:176
+performWorkUntilDeadline @ chunk-XQLYTHWV.js?v=c96c1231:384Understand this errorAI
+chunk-XQLYTHWV.js?v=c96c1231:19413 Uncaught ReferenceError: Logo is not defined
+    at PublicLeadForm (public-lead-form.tsx:210:10)
+    at renderWithHooks (chunk-XQLYTHWV.js?v=c96c1231:11548:26)
+    at updateFunctionComponent (chunk-XQLYTHWV.js?v=c96c1231:14582:28)
+    at beginWork (chunk-XQLYTHWV.js?v=c96c1231:15924:22)
+    at beginWork$1 (chunk-XQLYTHWV.js?v=c96c1231:19753:22)
+    at performUnitOfWork (chunk-XQLYTHWV.js?v=c96c1231:19198:20)
+    at workLoopSync (chunk-XQLYTHWV.js?v=c96c1231:19137:13)
+    at renderRootSync (chunk-XQLYTHWV.js?v=c96c1231:19116:15)
+    at recoverFromConcurrentError (chunk-XQLYTHWV.js?v=c96c1231:18736:28)
+    at performConcurrentWorkOnRoot (chunk-XQLYTHWV.js?v=c96c1231:18684:30)
+PublicLeadForm @ public-lead-form.tsx:210
+renderWithHooks @ chunk-XQLYTHWV.js?v=c96c1231:11548
+updateFunctionComponent @ chunk-XQLYTHWV.js?v=c96c1231:14582
+beginWork @ chunk-XQLYTHWV.js?v=c96c1231:15924
+beginWork$1 @ chunk-XQLYTHWV.js?v=c96c1231:19753
+performUnitOfWork @ chunk-XQLYTHWV.js?v=c96c1231:19198
+workLoopSync @ chunk-XQLYTHWV.js?v=c96c1231:19137
+renderRootSync @ chunk-XQLYTHWV.js?v=c96c1231:19116
+recoverFromConcurrentError @ chunk-XQLYTHWV.js?v=c96c1231:18736
+performConcurrentWorkOnRoot @ chunk-XQLYTHWV.js?v=c96c1231:18684
+workLoop @ chunk-XQLYTHWV.js?v=c96c1231:197
+flushWork @ chunk-XQLYTHWV.js?v=c96c1231:176
+performWorkUntilDeadline @ chunk-XQLYTHWV.js?v=c96c1231:384Understand this errorAI
+public-lead-form:1 The resource https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.

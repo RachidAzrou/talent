@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7bc142"/>
+      <stop offset="1" stop-color="#009444"/>
+    </linearGradient>
+  </defs>
+  <!-- Green Square with Cactus Logo -->
+  <rect width="120" height="120" rx="18" fill="url(#paint0_linear_1_2)"/>
+  <path d="m73.9 35.7c0-4.62-3.72-8.34-8.34-8.34h-5.58c-4.62 0-8.34 3.72-8.34 8.34v22.26c0 4.62-3.72 8.34-8.34 8.34-4.62 0-8.34-3.72-8.34-8.34v-11.16c0-4.62-3.72-8.34-8.34-8.34s-8.34 3.72-8.34 8.34v27.9c0 4.62 3.72 8.34 8.34 8.34s8.34-3.72 8.34-8.34v-11.16c0-4.62 3.72-8.34 8.34-8.34 4.62 0 8.34 3.72 8.34 8.34v22.26c0 4.62 3.72 8.34 8.34 8.34h5.58c4.62 0 8.34-3.72 8.34-8.34v-39z" fill="#1a2e35"/>
+  <path d="m91.5 35.7c0-4.62-3.72-8.34-8.34-8.34s-8.34 3.72-8.34 8.34v60.6c0 4.62 3.72 8.34 8.34 8.34s8.34-3.72 8.34-8.34z" fill="#1a2e35"/>
+  
+  <!-- TECNARIT Text -->
+  <path d="M160 40H220V50H195V90H185V50H160V40Z" fill="white"/>
+  <path d="M240 40H300V50H250V60H290V70H250V80H300V90H240V40Z" fill="white"/>
+  <path d="M320 40H340C345 40 350 40 355 42.5C360 45 362.5 50 362.5 55C362.5 65 355 70 342.5 70H330V90H320V40ZM330 60H340C345 60 352.5 60 352.5 52.5C352.5 48.75 350 45 342.5 45H330V60Z" fill="white"/>
+  <path d="M380 40H390L420 90H410L402.5 75H367.5L360 90H350L380 40ZM397.5 65L385 42.5L372.5 65H397.5Z" fill="white"/>
+  <path d="M430 40H440V80H480V90H430V40Z" fill="white"/>
+  <path d="M500 40H510V90H500V40Z" fill="white"/>
+  <path d="M530 40H540L580 75V40H590V90H580L540 55V90H530V40Z" fill="white"/>
+</svg>
